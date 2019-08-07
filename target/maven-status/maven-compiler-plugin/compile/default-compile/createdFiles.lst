@@ -1,0 +1,5 @@
+org/academiadecodigo/whiledlings/hackathon/service/FakeService.class
+org/academiadecodigo/whiledlings/hackathon/SpringBootstrap.class
+org/academiadecodigo/whiledlings/hackathon/controller/FakeController.class
+org/academiadecodigo/whiledlings/hackathon/persistence/dao/jpa/FakeDao.class
+org/academiadecodigo/whiledlings/hackathon/persistence/model/FakeModel.class
