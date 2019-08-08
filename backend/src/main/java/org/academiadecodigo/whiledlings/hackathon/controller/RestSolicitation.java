@@ -78,7 +78,7 @@ public class RestSolicitation {
         List<SolicitationDto> solicitationDtoList = new ArrayList<>();
 
         for (Solicitation solicitation : person.getSolicitations()) {
-            solicitationDtoList.add(solicitationServicceInt.convert(solicitation));
+            solicitationDtoList.add(solicitationToSolicitationDtoConverter.convert(solicitation));
         }
         return new ResponseEntity<>(solicitationDtoList, HttpStatus.OK);
     }
@@ -109,7 +109,7 @@ public class RestSolicitation {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        try {
+        //try {
 
             Solicitation solicitation = personServiceInt.addSolicitation(cid, solicitationDtoToSolicitation.convert(solicitationDto));
 
@@ -119,12 +119,12 @@ public class RestSolicitation {
 
             return new ResponseEntity<>(headers, HttpStatus.CREATED);
 
-        } catch (PersonNotFoundException e) {
+        /*} catch (PersonNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         } catch (TransactionInvalidException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        }*/
     }
 
 

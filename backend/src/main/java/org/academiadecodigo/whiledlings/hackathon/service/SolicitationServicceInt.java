@@ -5,4 +5,6 @@ import org.academiadecodigo.whiledlings.hackathon.persistence.model.solicitation
 public interface SolicitationServicceInt {
 
     Solicitation get (Integer id);
+
+
 }
