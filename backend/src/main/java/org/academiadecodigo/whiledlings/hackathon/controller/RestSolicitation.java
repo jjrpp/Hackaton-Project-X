@@ -111,7 +111,7 @@ public class RestSolicitation {
 
         try {
 
-            Solicitation solicitation = solicitationServicceInt.addSolicitation(cid, solicitationDtoToSolicitation.convert(solicitationDto));
+            Solicitation solicitation = personServiceInt.addSolicitation(cid, solicitationDtoToSolicitation.convert(solicitationDto));
 
             UriComponents uriComponents = uriComponentsBuilder.path("/api/person/" + cid + "/solicitation/" + solicitation.getId()).build();
             HttpHeaders headers = new HttpHeaders();
