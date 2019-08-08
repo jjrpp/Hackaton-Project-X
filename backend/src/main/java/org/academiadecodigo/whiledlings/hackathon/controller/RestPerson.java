@@ -32,7 +32,6 @@ public class RestPerson {
     private PersonDtoToPersonConverter personDtoToPersonConverter;
 
 
-    @Autowired
     public PersonServiceInt getPersonService() {
         return personService;
     }
@@ -42,7 +41,6 @@ public class RestPerson {
         this.personService = personService;
     }
 
-    @Autowired
     public PersonToPersonDtoConverter getPersonToPersonDtoConverter() {
         return personToPersonDtoConverter;
     }
@@ -52,7 +50,6 @@ public class RestPerson {
         this.personToPersonDtoConverter = personToPersonDtoConverter;
     }
 
-    @Autowired
     public PersonDtoToPersonConverter getPersonDtoToPersonConverter() {
         return personDtoToPersonConverter;
     }
