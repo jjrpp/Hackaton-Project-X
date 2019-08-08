@@ -5,10 +5,12 @@ import org.academiadecodigo.whiledlings.hackathon.persistence.dao.jpa.Solicitati
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.Person;
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.solicitation.Solicitation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
 public class PersonService implements PersonServiceInt {
 
 

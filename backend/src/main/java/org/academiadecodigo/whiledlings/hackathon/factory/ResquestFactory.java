@@ -1,7 +1,9 @@
 package org.academiadecodigo.whiledlings.hackathon.factory;
 
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.solicitation.*;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ResquestFactory {
 
     public Solicitation createSolicitation(SolicitationType solicitationType) {
