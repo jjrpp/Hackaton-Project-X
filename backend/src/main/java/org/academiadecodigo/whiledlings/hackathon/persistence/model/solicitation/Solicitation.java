@@ -3,10 +3,18 @@ package org.academiadecodigo.whiledlings.hackathon.persistence.model.solicitatio
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.AbstractModel;
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.Person;
 
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="solicitation_type")
 public abstract class Solicitation extends AbstractModel {
 
 
+
     private String description;
+
+    @ManyToOne
     private Person person;
 
     public String getDescription() {
@@ -24,4 +32,6 @@ public abstract class Solicitation extends AbstractModel {
     public void setPerson(Person person) {
         this.person = person;
     }
+
+    public abstract SolicitationType getSolicitationType();
 }
