@@ -89,9 +89,7 @@ public class RestPerson {
         if (bindingResult.hasErrors() || personDto.getId() != null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        System.out.println("aaaaaaaa-------------------------------------------");
-        System.out.println(personDto.toString());
-        System.out.println("aaaaaaaa-------------------------------------------");
+
         Person converted = personDtoToPersonConverter.convert(personDto);
 
         Person savedPerson = personService.save(converted);
