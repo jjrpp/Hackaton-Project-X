@@ -1,6 +1,7 @@
 package org.academiadecodigo.whiledlings.hackathon.dto;
 
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.Person;
+import org.academiadecodigo.whiledlings.hackathon.persistence.model.solicitation.SolicitationType;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,6 +17,9 @@ public class SolicitationDto {
     @NotBlank(message = "Description is mandatory")
     @Size(min = 3)
     private String description;
+
+    @NotNull(message = "Type is mandatory")
+    private SolicitationType type;
 
 
     public Integer getId() {
@@ -49,5 +53,9 @@ public class SolicitationDto {
                 ", person='" + person.getFirstName() + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    public SolicitationType getType() {
+        return type;
     }
 }

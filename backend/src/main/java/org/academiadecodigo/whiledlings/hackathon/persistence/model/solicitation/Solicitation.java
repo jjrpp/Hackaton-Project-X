@@ -34,4 +34,5 @@ public abstract class Solicitation extends AbstractModel {
     }
 
     public abstract SolicitationType getSolicitationType();
+
 }
