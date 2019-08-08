@@ -40,7 +40,6 @@ public class RestSolicitation {
         this.personServiceInt = personServiceInt;
     }
 
-    @Autowired
     public SolicitationServicceInt getSolicitationServicceInt() {
         return solicitationServicceInt;
     }
@@ -50,7 +49,6 @@ public class RestSolicitation {
         this.solicitationServicceInt = solicitationServicceInt;
     }
 
-    @Autowired
     public SolicitationToSolicitationDtoConverter getSolicitationToSolicitationDtoConverter() {
         return solicitationToSolicitationDtoConverter;
     }
@@ -60,7 +58,6 @@ public class RestSolicitation {
         this.solicitationToSolicitationDtoConverter = solicitationToSolicitationDtoConverter;
     }
 
-    @Autowired
     public SolicitationDtoToSolicitation getSolicitationDtoToSolicitation() {
         return solicitationDtoToSolicitation;
     }
