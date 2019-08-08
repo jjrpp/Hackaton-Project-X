@@ -6,5 +6,9 @@ import java.util.List;
 
 public class SolicitationDao extends GenericDao<Solicitation>{
 
+    public SolicitationDao(){
+        super(Solicitation.class);
+    }
+
 
 }
