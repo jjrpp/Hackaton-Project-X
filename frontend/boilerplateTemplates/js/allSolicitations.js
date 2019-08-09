@@ -12,12 +12,12 @@ $(document).ready(function () {
       grid+= '<img src="img/decoy.jpeg" class="card-img-top" alt="...">'
       grid+= '<div class="card-body">';
      
-      grid += '<h5 class="card-text">'+"Solicitation identificator: "+response[index].id+'</h5>';
-      grid += '<h5 class="card-text">'+"Solicitator description: "+response[index].description+'</h5>';
+      grid += '<h5 class="card-text" id="solicitation-id">'+'Solicitation id: ' +response[index].id+'</h5>';
+      grid += '<h5 class="card-text" id="solicitation-text">'+response[index].description+'</h5>';
 
 
       grid += '</div>';  
-      grid += '<a href="#" class="btn btn-primary">View solicitation</a>';
+      grid += '<a href="thanks.html" class="btn btn-primary">I want to help!</a>';
 
       
       grid += '</div>';

@@ -35,8 +35,56 @@ html {
   text-align: center;
 }
 
+#solicitation-id{
+  font-family: 'Acme', sans-serif;
+  font-size: 25px;
+  color: #316b89;
+  text-rendering: optimizeLegibility;
+}
+
+.transp {
+  background-color:transparent !important;
+}
+
+h1{
+  font-family: 'Acme', sans-serif;
+  font-size: 45px;
+  color: #fff38d;
+  text-rendering: optimizeLegibility;
+}
+
+#enterButton {
+  text-align: center;
+}
+
+
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 40vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+#thanks{
+  text-align: center;
+}
+
+#solicitation-text{
+  font-family: 'Acme', sans-serif;
+  font-size: 15px;
+  color: #19c4d8;
+  text-rendering: optimizeLegibility;
+}
+
 
 #mainTitle {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#logo {
   padding: 50px 20px;
   text-align: center;
 }
