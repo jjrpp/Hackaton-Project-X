@@ -121,7 +121,8 @@ public class RestSolicitation {
         }*/
 
         //try {
-
+        System.out.println("-------------------------------------------");
+        System.out.println("chegou aqui");
             Person editingPersonSolicitation = personServiceInt.get(cid);
 
             Solicitation solicitation = solicitationDtoToSolicitation.convert(solicitationDto);

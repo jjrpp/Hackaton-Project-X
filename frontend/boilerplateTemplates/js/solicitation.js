@@ -1,15 +1,23 @@
 $(document).ready(function () {
 
+    console.log('document is ready!');
+    
+    $('#solicitation-form').click(function(event) {
+        console.log('preventing default action of form submition!');
+        event.preventDefault();
+    })
+
     $('#button-solicitation').click(function(){
         
+        console.log("is this happening? Pls help!");
+
         $.ajax({
            
             type: 'POST',
-            url: '127.0.0.1:8080/projectx/api/person/1/solicitation',
+            url: 'http://localhost:8080/projectx/api/person/1/solicitation',
             data: JSON.stringify({
-                description: $('#input-story'.val()),
-                type : 'BABYSOLICITATION'
-                
+                description: $('#input-story').val(),
+                type: 'BABYSOLICITATION',              
             }),
             async: true,
             contentType: 'application/json',
@@ -119,7 +127,7 @@ $(document).ready(function () {
     }
 
     function errorRegist2(){
-        alert("bad");
+        
     }
 
     var selection = $("#menuSelect");
