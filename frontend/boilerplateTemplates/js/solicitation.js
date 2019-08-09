@@ -1,6 +1,9 @@
 $(document).ready(function () {
 
-    var insert = function () {
+    var personLoggedId = localStorage.getItem("personLoggedId");
+    console.log(personLoggedId);
+
+    var insertSolicitation = function () {
         /*console.log("Enviar para nova página html");*/
 
 
@@ -88,13 +91,11 @@ $(document).ready(function () {
             $("#dropdown-choice").replaceWith(educationInsertion);
         }
 
-
-
-
     }
 
     var selection = $("#menuSelect");
 
-    selection.change(insert);
+    selection.change(insertSolicitation);
+
 
 })
