@@ -37,6 +37,35 @@ html {
   text-shadow: none;
 }
 
+.bg {
+  /*background-image: url("/Users/codecadet/Workspace/Hackathon/frontend/boilerplateTemplates/img/mainBg.jpg");*/
+  background: linear-gradient(110deg, #19c4d8 50%, #96bccc 50%);
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+h2 {
+  font-family: 'Acme', sans-serif;
+  font-size: 35px;
+  color: #fff38d;
+  text-rendering: optimizeLegibility;
+}
+
+#logo {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#submitButton {
+  text-align: center;
+}
+
+label {
+  font-family: 'Oswald', sans-serif;
+}
+
 /*
  * A better looking default horizontal rule
  */
