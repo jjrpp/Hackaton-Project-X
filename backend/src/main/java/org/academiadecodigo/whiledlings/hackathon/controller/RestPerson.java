@@ -32,7 +32,6 @@ public class RestPerson {
     private PersonDtoToPersonConverter personDtoToPersonConverter;
 
 
-    @Autowired
     public PersonServiceInt getPersonService() {
         return personService;
     }
@@ -42,7 +41,6 @@ public class RestPerson {
         this.personService = personService;
     }
 
-    @Autowired
     public PersonToPersonDtoConverter getPersonToPersonDtoConverter() {
         return personToPersonDtoConverter;
     }
@@ -52,7 +50,6 @@ public class RestPerson {
         this.personToPersonDtoConverter = personToPersonDtoConverter;
     }
 
-    @Autowired
     public PersonDtoToPersonConverter getPersonDtoToPersonConverter() {
         return personDtoToPersonConverter;
     }
@@ -93,7 +90,9 @@ public class RestPerson {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        Person savedPerson = personService.save(personDtoToPersonConverter.convert(personDto));
+        Person converted = personDtoToPersonConverter.convert(personDto);
+
+        Person savedPerson = personService.save(converted);
 
         // get help from the framework building the path for the newly created resource
         UriComponents uriComponents = uriComponentsBuilder.path("/api/person/" + savedPerson.getId()).build();
