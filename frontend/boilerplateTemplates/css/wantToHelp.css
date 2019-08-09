@@ -10,11 +10,65 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+    * {
+    box-sizing: border-box;
+  }
 
 html {
   color: #222;
   font-size: 1em;
-  line-height: 1.4;
+  line-height: 1.4; 
+}
+
+.bg {
+  /*background-image: url("/Users/codecadet/Workspace/Hackathon/frontend/boilerplateTemplates/img/mainBg.jpg");*/
+  background: linear-gradient(110deg, #19c4d8 60%, #96bccc 60%);
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#grid-solicitations {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+
+#mainTitle {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#slogan {
+  font-family: 'Acme', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  color: #fff38d;
+  text-rendering: optimizeLegibility;
+}
+
+#single {
+  text-align: center;
+}
+
+.btn {
+  background-color: #316b89 ; /* Blue background */
+  border: none; /* Remove borders */
+  color: #fff38d; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: #deecf2;
+}
+
+#nextButton {
+  text-align: center;
 }
 
 /*
@@ -35,78 +89,6 @@ html {
 ::selection {
   background: #b3d4fc;
   text-shadow: none;
-}
-
-h2 {
-  text-align: center;
-}
-
-#logo {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.helpText {
-  font-family: 'Acme', sans-serif;
-  font-size: 25px;
-  text-align: center;
-  color: #fff38d;
-  text-rendering: optimizeLegibility;
-}
-
-/* Three image containers (use 25% for four, and 50% for two, etc) */
-.column {
-  float: left;
-  width: 48%;
-  padding: 20px;
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.bg {
-  /*background-image: url("/Users/codecadet/Workspace/Hackathon/frontend/boilerplateTemplates/img/mainBg.jpg");*/
-  background: linear-gradient(110deg, #19c4d8 60%, #96bccc 60%);
-  /*background-repeat: no-repeat;*/
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-}
-
-.transp {
-  background-color:transparent !important;
-}
-
-.vertical-center {
-  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: 30vh; /* These two lines are counted as one :-)       */
-
-  display: flex;
-  align-items: center;
-}
-
-#ask {
-  border-radius: 25px;
-  max-width: 100%;
-}
-
-#help {
-  border-radius: 25px;
-  max-width: 100%;
-}
-
-#ask:hover {
-  webkit-filter: blur(4px); 
-  filter: blur(4px);
-}
-
-#help:hover {
-  webkit-filter: blur(4px); 
-  filter: blur(4px);
 }
 
 /*
