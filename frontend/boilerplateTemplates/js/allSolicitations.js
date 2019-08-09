@@ -2,7 +2,6 @@ $(document).ready(function () {
 
 
     var solsGrid = $('#grid-solicitations');
-
   
     function successCallback(response) {
         // do something with the data
@@ -23,12 +22,8 @@ $(document).ready(function () {
       
       grid += '</div>';
       solsGrid.append(grid);
-
-
-
-
-
     }
+    
     }
     
     
@@ -43,6 +38,11 @@ $(document).ready(function () {
         success: successCallback,
         error: errorCallback
     });
+
+
+
+
+
     
       });
       function clickfun() {
