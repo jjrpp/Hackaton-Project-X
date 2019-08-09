@@ -1,5 +1,24 @@
 $(document).ready(function () {
 
+    $('#button-solicitation').click(function(){
+        
+        $.ajax({
+           
+            type: 'POST',
+            url: '127.0.0.1:8080/projectx/api/person/1/solicitation',
+            data: JSON.stringify({
+                description: $('#input-story'.val()),
+                type : 'BABYSOLICITATION'
+                
+            }),
+            async: true,
+            contentType: 'application/json',
+            dataType: 'json',
+            success: getIdAndGo2,
+            error: errorRegist2
+        });
+    });
+
     var personLoggedId = localStorage.getItem("personLoggedId");
     console.log(personLoggedId);
 
@@ -7,7 +26,7 @@ $(document).ready(function () {
         /*console.log("Enviar para nova página html");*/
 
 
-        if (document.getElementById("menuSelect").value === "Babysitting") {
+        if (document.getElementById("menuSelect").value === "BABYSOLICITATION") {
 
             var babyInsertion = `<div class="form-group" id="dropdown-choice">
             <div>
@@ -93,9 +112,22 @@ $(document).ready(function () {
 
     }
 
+    function getIdAndGo2(){
+        alert("nice");
+
+
+    }
+
+    function errorRegist2(){
+        alert("bad");
+    }
+
     var selection = $("#menuSelect");
 
     selection.change(insertSolicitation);
+    var desc = "" + $('#babysitting').val() + $('#input-story').val() + $('#formGroup-age').val() + $('#formGroup-hours').val() + $('#formGroup-date').val();
+    
+    
 
 
-})
+});
