@@ -20,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -36,6 +37,7 @@ public class RestSolicitation {
         return personServiceInt;
     }
 
+    @Autowired
     public void setPersonServiceInt(PersonServiceInt personServiceInt) {
         this.personServiceInt = personServiceInt;
     }
@@ -67,7 +69,17 @@ public class RestSolicitation {
         this.solicitationDtoToSolicitation = solicitationDtoToSolicitation;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path="{cid}/solicitation")
+    @RequestMapping(method = RequestMethod.GET, path="/listsolicitations")
+    public ResponseEntity<List<SolicitationDto>> listSolicitations(){
+        List<SolicitationDto> solicitationDtoList = new LinkedList<>();
+        for (Solicitation solicitation : solicitationServicceInt.list()) {
+            solicitationDtoList.add(solicitationToSolicitationDtoConverter.convert(solicitation));
+        }
+
+        return new ResponseEntity<>(solicitationDtoList, HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path="/{cid}/solicitation")
     public ResponseEntity<List<SolicitationDto>> listPersonSolicitations(@PathVariable Integer cid) {
 
         Person person = personServiceInt.get(cid);
@@ -80,7 +92,7 @@ public class RestSolicitation {
         return new ResponseEntity<>(solicitationDtoList, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, path="{cid}/solicitation/{sid}")
+    @RequestMapping(method = RequestMethod.GET, path="/{cid}/solicitation/{sid}")
     public ResponseEntity<SolicitationDto> showPersonSpecificSolicitation(@PathVariable Integer cid, @PathVariable Integer sid){
 
         Solicitation solicitation = solicitationServicceInt.get(sid);
@@ -93,22 +105,31 @@ public class RestSolicitation {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>(solicitationToSolicitationDtoConverter.convert(solicitation), HttpStatus.OK);
+        SolicitationDto solicitationDto = solicitationToSolicitationDtoConverter.convert(solicitation);
+
+        return new ResponseEntity<>(solicitationDto, HttpStatus.OK);
 
     }
 
-    @RequestMapping(method = RequestMethod.POST, path="{cid}/solicitation")
-    public ResponseEntity<?> addPerson(@PathVariable Integer cid, @Valid @RequestBody SolicitationDto solicitationDto,
+    @RequestMapping(method = RequestMethod.POST, path="/{cid}/solicitation")
+    public ResponseEntity<?> addSolicitation(@PathVariable Integer cid, @Valid @RequestBody SolicitationDto solicitationDto,
                                        BindingResult bindingResult, UriComponentsBuilder uriComponentsBuilder){
 
 
-        if (bindingResult.hasErrors() ||solicitationDto.getId() != null) {
+        /*if (bindingResult.hasErrors() || solicitationDto.getId() != null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        }*/
 
         //try {
 
-            Solicitation solicitation = personServiceInt.addSolicitation(cid, solicitationDtoToSolicitation.convert(solicitationDto));
+            Person editingPersonSolicitation = personServiceInt.get(cid);
+
+            Solicitation solicitation = solicitationDtoToSolicitation.convert(solicitationDto);
+            editingPersonSolicitation.addSolicitation(solicitation);
+            solicitation.setPerson(editingPersonSolicitation);
+            personServiceInt.save(editingPersonSolicitation);
+
+        //personServiceInt.addSolicitation(cid, solicitationDtoToSolicitation.convert(solicitationDto));
 
             UriComponents uriComponents = uriComponentsBuilder.path("/api/person/" + cid + "/solicitation/" + solicitation.getId()).build();
             HttpHeaders headers = new HttpHeaders();
@@ -144,6 +165,28 @@ public class RestSolicitation {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         }*/
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, path = "/{cid}/solicitation/{sid}")
+    public ResponseEntity<SolicitationDto> editSolicitation(@Valid @RequestBody SolicitationDto solicitationDto, BindingResult bindingResult, @PathVariable Integer sid) {
+
+
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        if (solicitationDto.getId() != null && !solicitationDto.getId().equals(sid)) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        if (solicitationServicceInt.get(sid) == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        solicitationDto.setId(sid);
+
+        solicitationServicceInt.save(solicitationDtoToSolicitation.convert(solicitationDto));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

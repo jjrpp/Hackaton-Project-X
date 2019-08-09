@@ -8,7 +8,8 @@ public enum SolicitationType {
     BABYSOLICITATION,
     COUNSELINGSOLICITATION,
     EDUCATIONSOLICITATION,
-    MATERIALSOLICITATION;
+    CLOTHINGSOLICITATION,
+    BOOKSOLICITATION;
 
     public static List<SolicitationType> list(){
         return Arrays.asList(SolicitationType.values());

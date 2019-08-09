@@ -4,8 +4,9 @@ import javax.persistence.Entity;
 
 @Entity
 public class CounselingSolicitation extends Solicitation {
+
     @Override
-    public SolicitationType getSolicitationType() {
-        return SolicitationType.COUNSELINGSOLICITATION;
+    public String getSolicitationType() {
+        return "COUNSELINGSOLICITATION";
     }
 }

@@ -6,22 +6,25 @@ import org.springframework.stereotype.Component;
 @Component
 public class ResquestFactory {
 
-    public Solicitation createSolicitation(SolicitationType solicitationType) {
+    public Solicitation createSolicitation(String solicitationType) {
 
         Solicitation newSolicitation;
 
         switch (solicitationType) {
 
-            case BABYSOLICITATION:
+            case "BABYSOLICITATION":
                 newSolicitation = new BabySolicitation();
                 break;
-            case MATERIALSOLICITATION:
-                newSolicitation = new MaterialSolicitation();
+            case "BOOKSOLICITATION":
+                newSolicitation = new BookSolicitation();
                 break;
-            case EDUCATIONSOLICITATION:
+            case "CLOTHINGSOLICITATION":
+                newSolicitation = new ClothingSolicitation();
+                break;
+            case "EDUCATIONSOLICITATION":
                 newSolicitation = new EducationSolicitation();
                 break;
-            case COUNSELINGSOLICITATION:
+            case "COUNSELINGSOLICITATION":
                 newSolicitation = new CounselingSolicitation();
                 break;
                 default:

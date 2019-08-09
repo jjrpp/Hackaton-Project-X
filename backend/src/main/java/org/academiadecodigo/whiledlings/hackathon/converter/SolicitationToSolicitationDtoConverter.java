@@ -13,7 +13,7 @@ public class SolicitationToSolicitationDtoConverter extends AbstractConverter<So
         SolicitationDto solicitationDto = new SolicitationDto();
         solicitationDto.setDescription(solicitation.getDescription());
         solicitationDto.setId(solicitation.getId());
-        solicitationDto.setPerson(solicitation.getPerson());
+
 
         return solicitationDto;
     }

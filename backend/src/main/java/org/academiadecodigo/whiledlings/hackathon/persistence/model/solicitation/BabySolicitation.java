@@ -7,7 +7,7 @@ public class BabySolicitation extends Solicitation {
 
 
     @Override
-    public SolicitationType getSolicitationType() {
-        return SolicitationType.BABYSOLICITATION;
+    public String getSolicitationType() {
+        return "BABYSOLICITATION";
     }
 }
