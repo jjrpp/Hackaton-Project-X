@@ -8,8 +8,8 @@ $(document).ready(function () {
         for (let index = 0; index < response.length; index++) {
       //var row = '<tr>';
         
-      var grid = '<div class="card" style="width: 18rem;">';
-      grid+= '<img src="img/decoy.jpg" class="card-img-top" alt="...">'
+      var grid = '<div class="card" style="width: 30rem;">';
+      grid+= '<img src="img/decoy.jpeg" class="card-img-top" alt="...">'
       grid+= '<div class="card-body">';
       for (let sec = 0; sec < 4; sec++) {
         
