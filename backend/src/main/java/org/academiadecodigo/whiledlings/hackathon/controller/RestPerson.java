@@ -80,9 +80,14 @@ public class RestPerson {
         return new ResponseEntity<>(personToPersonDtoConverter.convert(person), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = {"/", ""})
+    @CrossOrigin(origins = "*")
+    @RequestMapping(method = RequestMethod.POST, path = {"/register", ""})
     public ResponseEntity<?> addPerson(@Valid @RequestBody PersonDto personDto, BindingResult bindingResult, UriComponentsBuilder uriComponentsBuilder) {
 
+        System.out.println("###### CHEGOU AAQQUI #######################");
+        System.out.println("###### CHEGOU AAQQUI #######################");
+        System.out.println("###### CHEGOU AAQQUI #######################");
+        System.out.println("###### CHEGOU AAQQUI #######################");
         if (bindingResult.hasErrors() || personDto.getId() != null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

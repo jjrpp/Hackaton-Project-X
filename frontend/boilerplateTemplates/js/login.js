@@ -54,7 +54,7 @@ $(document).ready(function () {
     function doLogin(id) {
 
         personLoggedInId = id;
-        console.log(personLoggedInId);
+        //console.log(personLoggedInId);
         localStorage.setItem("personLoggedId", personLoggedInId);
         /*window.location.href("/Users/codecadet/Workspace/Hackathon/frontend/boilerplateTemplates/solicitation.html");*/
     };
@@ -68,6 +68,10 @@ $(document).ready(function () {
 
     }
 
+    function errorGetList () {
+        console.log("AAAAA");
+    }
+
     function getLastId (response) {
 
         var index = response.length-1;
@@ -77,27 +81,37 @@ $(document).ready(function () {
 
     function getIdAndGo (response){
 
-        $.ajax({
-            url: 'http://localhost:8080/projectx/api/person',
-            type: 'GET',
-            async: true,
-            success: getLastId,
-            error: errorGetList
-        })
+        alert("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
     }
 
-    function errorRegist () {
+    function errorRegist (request, status, error) {
+        
+        console.log("OIX");
+        console.log("OIX");
+        console.log("OIX");
+        console.log("OIX");
+        alert($('#formGroup-firstName').val());
+        console.log("OIX");
+        console.log("OIX");
+        console.log("OIX");
+        console.log("OIX");
+        console.log("OIX");
+        console.log("OIX");
 
     }
 
-    function regist () {
+    function regist () {        
+               
         $.ajax({
-            url: 'http://localhost:8080/projectx/api/person',
+            url: 'http://localhost:8080/projectx/api/person/register',
             type: 'POST',
             data: JSON.stringify({
-                firstName: $('#formGroup-firstname').val(),
-                lastName: $('#formGroup-lastname').val(),
+                firstName: $('#formGroup-firstName').val(),
+                lastName: $('#formGroup-lastName').val(),
                 email: $('#formGroup-email').val(),
                 phone: $('#formGroup-phone').val()
             }),
@@ -105,8 +119,8 @@ $(document).ready(function () {
             contentType: 'application/json',
             success: getIdAndGo,
             error: errorRegist
-        })
-        ;
+        });
+      
     }
     
 
