@@ -6,6 +6,8 @@ import org.academiadecodigo.whiledlings.hackathon.persistence.model.solicitation
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SolicitationService implements SolicitationServicceInt {
 
@@ -30,4 +32,16 @@ public class SolicitationService implements SolicitationServicceInt {
 
         return solicitationDao.findById(id);
     }
+
+    @Override
+    public Solicitation save(Solicitation solicitation) {
+        return solicitationDao.saveOrUpdate(solicitation);
+    }
+
+    @Override
+    public List<Solicitation> list() {
+        return solicitationDao.findAll();
+    }
+
+
 }

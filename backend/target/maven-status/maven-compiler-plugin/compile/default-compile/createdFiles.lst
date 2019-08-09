@@ -13,9 +13,9 @@ org/academiadecodigo/whiledlings/hackathon/persistence/dao/jpa/GenericDao.class
 org/academiadecodigo/whiledlings/hackathon/dto/SolicitationDto.class
 org/academiadecodigo/whiledlings/hackathon/service/PersonServiceInt.class
 org/academiadecodigo/whiledlings/hackathon/persistence/model/Person.class
-org/academiadecodigo/whiledlings/hackathon/factory/ResquestFactory$1.class
-org/academiadecodigo/whiledlings/hackathon/persistence/model/solicitation/MaterialSolicitation.class
 org/academiadecodigo/whiledlings/hackathon/persistence/model/FakeModel.class
+org/academiadecodigo/whiledlings/hackathon/persistence/model/solicitation/ClothingSolicitation.class
+org/academiadecodigo/whiledlings/hackathon/persistence/model/solicitation/BookSolicitation.class
 org/academiadecodigo/whiledlings/hackathon/persistence/dao/jpa/Dao.class
 org/academiadecodigo/whiledlings/hackathon/persistence/model/solicitation/BabySolicitation.class
 org/academiadecodigo/whiledlings/hackathon/persistence/model/AbstractModel.class

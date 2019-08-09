@@ -11,8 +11,8 @@ import javax.persistence.*;
 public abstract class Solicitation extends AbstractModel {
 
 
-
     private String description;
+    private String type;
 
     @ManyToOne
     private Person person;
@@ -33,6 +33,12 @@ public abstract class Solicitation extends AbstractModel {
         this.person = person;
     }
 
-    public abstract SolicitationType getSolicitationType();
+    public String getSolicitationType(){
 
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
