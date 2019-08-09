@@ -5,10 +5,7 @@ import org.academiadecodigo.whiledlings.hackathon.converter.PersonDtoToPersonCon
 import org.academiadecodigo.whiledlings.hackathon.converter.PersonToPersonDtoConverter;
 import org.academiadecodigo.whiledlings.hackathon.dto.PersonDto;
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.Person;
-import org.academiadecodigo.whiledlings.hackathon.persistence.model.solicitation.Solicitation;
-import org.academiadecodigo.whiledlings.hackathon.service.PersonService;
 import org.academiadecodigo.whiledlings.hackathon.service.PersonServiceInt;
-import org.academiadecodigo.whiledlings.hackathon.service.SolicitationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -103,6 +100,27 @@ public class RestPerson {
 
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
 
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
+    public ResponseEntity<PersonDto> editPerson(@Valid @RequestBody PersonDto personDto, BindingResult bindingResult, @PathVariable Integer id) {
+
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        if (personDto.getId() != null && !personDto.getId().equals(id)) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        if (personService.get(id) == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        personDto.setId(id);
+
+        personService.save(personDtoToPersonConverter.convert(personDto));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

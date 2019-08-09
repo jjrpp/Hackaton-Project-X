@@ -2,6 +2,7 @@ package org.academiadecodigo.whiledlings.hackathon.dto;
 
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.Person;
 import org.academiadecodigo.whiledlings.hackathon.persistence.model.solicitation.SolicitationType;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,7 +12,7 @@ public class SolicitationDto {
 
     private Integer id;
 
-    private Person person;
+
 
     @NotNull(message = "Description is mandatory")
     @NotBlank(message = "Description is mandatory")
@@ -19,7 +20,8 @@ public class SolicitationDto {
     private String description;
 
     @NotNull(message = "Type is mandatory")
-    private SolicitationType type;
+    @NotBlank(message = "Description is mandatory")
+    private String type;
 
 
     public Integer getId() {
@@ -30,13 +32,7 @@ public class SolicitationDto {
         this.id = id;
     }
 
-    public Person getPerson() {
-        return person;
-    }
 
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 
     public String getDescription() {
         return description;
@@ -46,16 +42,22 @@ public class SolicitationDto {
         this.description = description;
     }
 
+    public String getSolicitationType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "CustomerForm{" +
                 "id=" + id +
-                ", person='" + person.getFirstName() + '\'' +
+                //", person='" + person.getFirstName() + '\'' +
                 ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 
-    public SolicitationType getType() {
-        return type;
-    }
 }
